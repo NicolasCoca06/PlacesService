@@ -1,0 +1,326 @@
+{
+	"info": {
+		"_postman_id": "1b92d085-1dc2-4d1e-80ff-0b9726517a52",
+		"name": "Microservicios",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23312038"
+	},
+	"item": [
+		{
+			"name": "Kong",
+			"item": [
+				{
+					"name": "Registrar servicio",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"measurements\",\r\n    \"url\": \"http://35.193.151.156:8080\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://34.69.159.153:8001/services",
+							"protocol": "http",
+							"host": [
+								"34",
+								"69",
+								"159",
+								"153"
+							],
+							"port": "8001",
+							"path": [
+								"services"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Registrar ruta",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"hosts\": [\"10.128.0.31\", \"0.0.0.0\", \"34.69.159.153\"],\r\n     \"paths\": [\"/measurements\"],\r\n    \"strip_path\": false,\r\n    \"methods\": [\r\n        \"GET\"\r\n    ],\r\n    \"service\": {\r\n        \"id\": \"261f278b-a35e-4c61-af55-66f8b3aa7406\"\r\n       },\r\n    \"preserve_host\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://34.69.159.153:8001/routes/",
+							"protocol": "http",
+							"host": [
+								"34",
+								"69",
+								"159",
+								"153"
+							],
+							"port": "8001",
+							"path": [
+								"routes",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Variables",
+			"item": [
+				{
+					"name": "Create Variable",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Temperatura\",\r\n    \"data\": \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://34.171.66.152:8080/variablecreate/",
+							"protocol": "http",
+							"host": [
+								"34",
+								"171",
+								"66",
+								"152"
+							],
+							"port": "8080",
+							"path": [
+								"variablecreate",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Variables",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Temperatura\",\r\n    \"data\": \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://34.171.66.152:8080/variables/",
+							"protocol": "http",
+							"host": [
+								"34",
+								"171",
+								"66",
+								"152"
+							],
+							"port": "8080",
+							"path": [
+								"variables",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Places",
+			"item": [
+				{
+					"name": "Create Place",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"ML-101\",\r\n    \"data\": \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://34.171.66.152:8080/placecreate/",
+							"protocol": "http",
+							"host": [
+								"34",
+								"171",
+								"66",
+								"152"
+							],
+							"port": "8080",
+							"path": [
+								"placecreate",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Places",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"ML-101\",\r\n    \"data\": \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://34.171.66.152:8080/places/",
+							"protocol": "http",
+							"host": [
+								"34",
+								"171",
+								"66",
+								"152"
+							],
+							"port": "8080",
+							"path": [
+								"places",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Measurements",
+			"item": [
+				{
+					"name": "Create Measurement",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"variable\": 1,\r\n    \"value\": 25,\r\n    \"unit\": \"C\",\r\n    \"place\": \"ML\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://35.193.151.156:8080/measurementcreate/",
+							"protocol": "http",
+							"host": [
+								"35",
+								"193",
+								"151",
+								"156"
+							],
+							"port": "8080",
+							"path": [
+								"measurementcreate",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Measurements",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"variable\": 1,\r\n    \"value\": 24,\r\n    \"unit\": \"C\",\r\n    \"place\": \"ML\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://35.193.151.156:8080/measurements/",
+							"protocol": "http",
+							"host": [
+								"35",
+								"193",
+								"151",
+								"156"
+							],
+							"port": "8080",
+							"path": [
+								"measurements",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create many measurements",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n        \"variable\": 1,\r\n        \"unit\": \"C\",\r\n        \"value\": 68.56,\r\n        \"place\": \"RGD-1\"\r\n    },\r\n    {\r\n        \"variable\": 1,\r\n        \"unit\": \"C\",\r\n        \"value\": 68.56,\r\n        \"place\": \"RGD-1\"\r\n    }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://35.193.151.156:8080/createmeasurements/",
+							"protocol": "http",
+							"host": [
+								"35",
+								"193",
+								"151",
+								"156"
+							],
+							"port": "8080",
+							"path": [
+								"createmeasurements",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
